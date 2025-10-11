@@ -40,7 +40,6 @@ if (localStorage.getItem('NBvis')!=='yes'){
     msgbox.appendChild(msgbtn);
     msgbox.appendChild(msgbtn2);
 }
-// img
 window.addEventListener('DOMContentLoaded', () => {
     const allImg = document.querySelectorAll('img');
     let isBig = 0;
@@ -113,4 +112,36 @@ window.addEventListener('DOMContentLoaded', () => {
             });
         });
     });
+    let messages=[];
+    document.getElementById('suggestion-ok').addEventListener('click', ()=>{
+        let msgbox = document.createElement('div');
+        msgbox.classList.add('topmsg');
+        msgbox.classList.add('error');
+        msgbox.innerHTML = '此功能还在编写中~';
+        msgbox.style.top = '-50px';
+        msgbox.style.opacity = '0';
+        document.body.appendChild(msgbox);
+        messages.push(msgbox);
+        setTimeout(() => {
+            setMessagesPos();
+            msgbox.style.opacity = '1';
+        }, 10);
+        setTimeout(() => {
+            msgbox.style.top = '-50px';
+            msgbox.style.opacity = '0';
+            setTimeout(() => {
+                const index = messages.indexOf(msgbox);
+                if (index !== -1) {
+                    messages.splice(index, 1);
+                    document.body.removeChild(msgbox);
+                    setMessagesPos();
+                }
+            }, 300);
+        }, 3000);
+    });
+    function setMessagesPos() {
+        messages.forEach((msg, index) => {
+            msg.style.top=(45+index*40)+'px';
+        });
+    }
 });
