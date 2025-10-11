@@ -170,4 +170,63 @@
     margin: 0;
     margin-top: 5px;
     color: #222;
+} .topmsg {
+    border-radius: 5px;
+    padding: 6px 7px;
+    z-index: 9999;
+    position: fixed;
+    box-shadow: 0 0 4px 1px #aaa;
+    transform: translateX(-50%);
+    left: 50%;
+    background-color: #fff;
+    font-size: small;
+    color: #555;
+    top: 45px;
+    transition: all .3s;
+} .topmsg.info {
+    border: #999 1px solid;
+    background-color: #c7c7c7;
+} .topmsg.success {
+    border: #7bf93c 1px solid;
+    background-color: #cbffbe;
+} .topmsg.warn {
+    border: #ffe600 1px solid;
+    background-color: #fffcbf;
+} .topmsg.error {
+    border: #ff422d 1px solid;
+    background-color: #ffdada;
+} .suggestion > div {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: block;
+} .suggestion > div > input {
+    outline: none;
+    border: #aaa 1px solid;
+    border-radius: 5px;
+    padding: 5px;
+    display: inline;
+    margin-left: 5px!important;
+    transition: all .3s;
+    width: 300px;
+} .suggestion > div > input:hover {
+    border: #37a8f3 1px solid;
+} .suggestion > div > input:focus {
+    border: #1d94e4 1px solid;
+} .suggestion > button {
+    margin-left: 10%;
+    background-color: #2fa1ed;
+    border: none;
+    border-radius: 5px;
+    transition: all .3s;
+    color: #fff;
+    padding: 5px;
+    cursor: pointer;
+    width: 50px;
+} .suggestion > button:hover {
+    background-color: #1174d1;
+} .suggestion > button:active {
+    background-color: #0c65b8;
+} .suggestion > div > p {
+    color: #222;
+    display: inline;
 }
