@@ -195,7 +195,7 @@ window.addEventListener('DOMContentLoaded', () => {
     v.appendChild(t);
     v.appendChild(img);
     v.appendChild(title);
-    if (lastvideo.title === undefined) document.getElementById('other').appendChild(v);
+    if (lastvideo.title !== undefined) document.getElementById('other').appendChild(v);
     img.addEventListener('click', ()=>{window.open(lastvideo.url, '_blank')})
     document.getElementById('suggestion-ok').addEventListener('click', ()=>{
         addMessageBox({
