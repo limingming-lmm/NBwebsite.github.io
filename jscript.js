@@ -1,5 +1,77 @@
+let messages=[];
 console.log("NB实验室为虚拟实验室, 现实中不要轻易模仿!");
 const delVis = () => {localStorage.setItem('NBvis', 'no')};
+/*
+function addMessageBox
+params: obj
+{
+    type: 'info','error','warn','success' (default: info)
+    content: str
+    center: true(1, text center) or false(0)
+    time: ms(0: not close)
+}
+*/
+function addMessageBox(obj){
+    let msgbox = document.createElement('div');
+    msgbox.classList.add('top-messagebox');
+    msgbox.classList.add(obj.type?obj.type:'info');
+    if (obj.center===1) msgbox.classList.add('is-center');
+    msgbox.style.top = '-50px';
+    msgbox.style.opacity = '0';
+    let txt = document.createElement('div');
+    txt.classList.add('msg-content');
+    txt.innerHTML = obj.content;
+    msgbox.appendChild(txt);
+    document.body.appendChild(msgbox);
+    messages.push(msgbox);
+    setTimeout(() => {
+        setMessagesPos();
+        msgbox.style.opacity = '1';
+    }, 10);
+    if (obj.time===0) return;
+    setTimeout(() => {
+        msgbox.style.top = '-50px';
+        msgbox.style.opacity = '0';
+        setTimeout(() => {
+            const index = messages.indexOf(msgbox);
+            if (index !== -1) {
+                messages.splice(index, 1);
+                document.body.removeChild(msgbox);
+                setMessagesPos();
+            }
+        }, 300);
+    }, obj.time);
+};
+function setMessagesPos() {
+    messages.forEach((msg, index) => {
+        msg.style.top=(20+index*55)+'px';
+    });
+}
+async function getBilibiliLatestVideo(uid) {
+    try {
+        const url = `https://api.bilibili.com/x/space/arc/search?mid=${uid}&ps=1&pn=1&order=pubdate`;
+        const response = await fetch(url, {
+            headers: {
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
+                'Referer': `https://space.bilibili.com/${uid}/video`
+            }
+        });
+        const data = await response.json();
+        if (data.code !== 0 || !data.data || !data.data.list || !data.data.list.vlist || data.data.list.vlist.length === 0) {
+            throw new Error('无法获取视频信息');
+        }
+        const latestVideo = data.data.list.vlist[0];
+        return {
+            title: latestVideo.title,
+            url: `https://www.bilibili.com/video/${latestVideo.bvid}`,
+            cover: latestVideo.pic,
+            // pubDate: new Date(latestVideo.created * 1000).toLocaleString()
+        };
+    } catch (error) {
+        console.error('获取视频信息失败:', error.message);
+        return null;
+    }
+}
 if (localStorage.getItem('NBvis')!=='yes'){
     document.body.style.overflowY = 'hidden';
     let msgbox = document.createElement('div');
@@ -112,36 +184,24 @@ window.addEventListener('DOMContentLoaded', () => {
             });
         });
     });
-    let messages=[];
+    const lastvideo = getBilibiliLatestVideo(660396077);
+    let v = document.createElement('div');
+    let t = document.createElement('div');
+    t.innerHTML = '最新视频';
+    let img = document.createElement('img');
+    img.src = lastvideo.cover;
+    let title = document.createElement('div');
+    title.innerHTML = lastvideo.title;
+    v.appendChild(t);
+    v.appendChild(img);
+    v.appendChild(title);
+    if (lastvideo.title === undefined) document.getElementById('other').appendChild(v);
+    img.addEventListener('click', ()=>{window.open(lastvideo.url, '_blank')})
     document.getElementById('suggestion-ok').addEventListener('click', ()=>{
-        let msgbox = document.createElement('div');
-        msgbox.classList.add('topmsg');
-        msgbox.classList.add('error');
-        msgbox.innerHTML = '此功能还在编写中~';
-        msgbox.style.top = '-50px';
-        msgbox.style.opacity = '0';
-        document.body.appendChild(msgbox);
-        messages.push(msgbox);
-        setTimeout(() => {
-            setMessagesPos();
-            msgbox.style.opacity = '1';
-        }, 10);
-        setTimeout(() => {
-            msgbox.style.top = '-50px';
-            msgbox.style.opacity = '0';
-            setTimeout(() => {
-                const index = messages.indexOf(msgbox);
-                if (index !== -1) {
-                    messages.splice(index, 1);
-                    document.body.removeChild(msgbox);
-                    setMessagesPos();
-                }
-            }, 300);
-        }, 3000);
-    });
-    function setMessagesPos() {
-        messages.forEach((msg, index) => {
-            msg.style.top=(45+index*40)+'px';
+        addMessageBox({
+            type: 'error',
+            time: 3000,
+            content: '此功能还在编写中!'
         });
-    }
+    });
 });
