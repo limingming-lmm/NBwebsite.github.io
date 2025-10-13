@@ -152,10 +152,10 @@ body {
     overflow-x: hidden;
     background-color: #e7fbfd;
 }
-img:not(.messagebox > img, #other > * > img):hover {
+img:not(.messagebox > img):hover {
     scale: 1.05;
 }
-img:not(.messagebox > img, #other > * > img):not(:hover) {
+img:not(.messagebox > img):not(:hover) {
     scale: 1;
 }
 img:not(.messagebox > img) {
@@ -293,11 +293,4 @@ img:not(.messagebox > img) {
 .suggestion > div > p {
     color: #222;
     display: inline;
-}
-#other > div {
-    margin-top: 10px;
-}
-#other > div > img {
-    width: 200px;
-    border-radius: 5px;
 }
