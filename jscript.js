@@ -159,11 +159,11 @@ window.addEventListener('DOMContentLoaded', () => {
             });
         });
     });
-    document.getElementById('suggestion-ok').addEventListener('click', ()=>{
-        addMessageBox({
-            type: 'error',
-            time: 3000,
-            content: '此功能还在编写中!'
-        });
-    });
+    // document.getElementById('suggestion-ok').addEventListener('click', ()=>{
+    //     addMessageBox({
+    //         type: 'error',
+    //         time: 3000,
+    //         content: '此功能还在编写中!'
+    //     });
+    // });
 });
