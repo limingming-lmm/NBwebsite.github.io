@@ -257,7 +257,7 @@ img:not(.messagebox > img) {
     margin-bottom: 10px;
     display: block;
 }
-.suggestion > div > input {
+input {
     outline: none;
     border: #aaa 1px solid;
     border-radius: 5px;
@@ -267,13 +267,13 @@ img:not(.messagebox > img) {
     transition: all .3s;
     width: 300px;
 }
-.suggestion > div > input:hover {
+input:hover {
     border: #37a8f3 1px solid;
 }
-.suggestion > div > input:focus {
+input:focus {
     border: #1d94e4 1px solid;
 }
-.suggestion > button {
+button.btn {
     margin-left: 10%;
     background-color: #2fa1ed;
     border: none;
@@ -284,13 +284,61 @@ img:not(.messagebox > img) {
     cursor: pointer;
     width: 50px;
 }
-.suggestion > button:hover {
+button.btn:hover {
     background-color: #1174d1;
 }
-.suggestion > button:active {
+button.btn:active {
     background-color: #0c65b8;
 }
 .suggestion > div > p {
     color: #222;
     display: inline;
+}
+button#backtotop {
+    position: fixed;
+    z-index: 99999;
+    border-radius: 10px;
+    width: 40px;
+    height: 45px;
+    box-shadow: 0 0 2px 2px #1d94e422;
+    cursor: pointer;
+    opacity: 0;
+    bottom: 20px;
+    right: 20px;
+    overflow: hidden;
+    transition: all .3s;
+    background-color: #1d94e4ee;
+    border: none;
+    outline: none;
+}
+button#backtotop:hover {
+    bottom: 25px;
+    width: 100px;
+    box-shadow: 0 0 5px 5px #1d94e422;
+}
+button#backtotop:active {
+    background-color: #167cdcee;
+    box-shadow: 0 0 5px 5px #157abe22;
+}
+button#backtotop > p {
+    color: #fff;
+    left: 10px;
+    top: 0;
+    position: absolute;
+    opacity: 0;
+    transition: all .15s;
+    z-index: 999999;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+button#backtotop:hover > p {
+    opacity: 1;
+}
+button#backtotop > svg.icon {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: 10px;
+    top: 12px;
 }
