@@ -159,6 +159,23 @@ window.addEventListener('DOMContentLoaded', () => {
             });
         });
     });
+    const backtotop = document.getElementById('backtotop');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300){
+            backtotop.style.opacity = 1;
+            backtotop.style.pointerEvents = 'auto';
+        } else {
+            backtotop.style.opacity = 0;
+            backtotop.style.pointerEvents = 'none';
+        }
+        
+    });
+    document.getElementById('backtotop').addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
     // document.getElementById('suggestion-ok').addEventListener('click', ()=>{
     //     addMessageBox({
     //         type: 'error',
