@@ -88,8 +88,8 @@ if (localStorage.getItem('NBvis')!=='yes'){
     msgbox.appendChild(msgbtn2);
 }
 const routes = {
-    '': '',
-    '/table': 'pages/table.html'
+    '/': 'index.html',
+    '/table': 'table.html'
 };
 function navigate(path) {
     history.pushState(null, null, path);
