@@ -87,6 +87,28 @@ if (localStorage.getItem('NBvis')!=='yes'){
     msgbox.appendChild(msgbtn);
     msgbox.appendChild(msgbtn2);
 }
+const routes = {
+    '': '',
+    '/table': 'pages/table.html'
+};
+function navigate(path) {
+    history.pushState(null, null, path);
+    loadPage(path);
+}
+function loadPage(path) {
+    const contentEl = document.getElementById('content');
+    const pagePath = routes[path] || routes['/'];
+    fetch(pagePath)
+        .then(response => response.text())
+        .then(html => {
+            contentEl.innerHTML = html;
+    })
+    .catch(error => {
+        contentEl.innerHTML = '<h1>页面不存在</h1>';
+        console.error(error);
+    });
+}
+
 window.addEventListener('DOMContentLoaded', () => {
     const allImg = document.querySelectorAll('img');
     let isBig = 0;
@@ -176,6 +198,10 @@ window.addEventListener('DOMContentLoaded', () => {
             behavior: 'smooth'
         });
     });
+    window.addEventListener('popstate', () => {
+        loadPage(window.location.pathname);
+    });
+    loadPage(window.location.pathname);
     // document.getElementById('suggestion-ok').addEventListener('click', ()=>{
     //     addMessageBox({
     //         type: 'error',
