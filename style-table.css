@@ -1,0 +1,45 @@
+footer {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    font-size: 0.95rem;
+    border: none;
+    border-top: #bbb 1px solid;
+    color: #333;
+    padding: 20px 0;
+}
+body {
+    overflow-x: hidden;
+    background-color: #e7fbfd;
+}
+.tabel > .item {
+    width: 60px;
+    height: 60px;
+}
+.tabel > .item > :first-child {
+    margin-left: 2px;
+    margin-top: 2px;
+    font-size: x-small;
+}
+.tabel > .item > :nth-child(2) {
+    margin-top: 2px;
+    font-size: x-small;
+    margin-right: 2px;
+}
+.tabel > .item > :nth-child(3) {
+    margin-left: 50%;
+    margin-top: 40%;
+    transform: translate(-50%, -50%);
+}
+.tabel > .item > :nth-child(4) {
+    margin-left: 50%;
+    margin-top: 56%;
+    transform: translate(-50%, -50%);
+    font-size: small;
+}
+.tabel > .item > :nth-child(5) {
+    margin-bottom: 2px;
+    font-size: x-small;
+    margin-left: 2px;
+}
