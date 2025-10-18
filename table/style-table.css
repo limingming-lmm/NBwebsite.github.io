@@ -1,0 +1,120 @@
+.top#tp {
+    width: 101.14%;
+    height: 150px;
+    margin-left: -5px;
+    margin-top: -5px;
+    border-radius: 4px;
+    background: linear-gradient(90deg, rgb(114, 198, 254), rgb(45, 126, 255), rgb(7, 76, 171));
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.top#tp > :first-child{
+    display: block;
+    color: #fff;
+    font-size: xx-large;
+    font-weight: 600;
+}
+.top#tp > :nth-child(2){
+    display: block;
+    color: #fff;
+}
+footer {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    font-size: 0.95rem;
+    border: none;
+    border-top: #bbb 1px solid;
+    color: #333;
+    padding: 20px 0;
+}
+body {
+    overflow-x: hidden;
+    background-color: #e7fbfd;
+}
+.table {
+    margin-top: 50px;
+    margin-left: 20px;
+}
+.table > .item > * {
+    position: absolute;
+}
+.table > .item {
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+    user-select: none;
+    position: absolute;
+    transition: all .2s;
+    outline: #333 2px solid;
+}
+.table > .item:hover {
+    outline: #2fa1ed 4px solid!important;
+}
+.table > .item > :first-child {
+    left: 2px;
+    top: 2px;
+    font-size: x-small;
+}
+.table > .item > :nth-child(2) {
+    top: 2px;
+    right: 2px;
+    font-size: x-small;
+}
+.table > .item > :nth-child(3) {
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, -50%);
+}
+.table > .item > :nth-child(4) {
+    left: 50%;
+    top: 58%;
+    transform: translate(-50%, -50%);
+    font-size: x-small;
+}
+.table > .item > :nth-child(5) {
+    bottom: 2px;
+    left: 2px;
+    font-size: x-small;
+}
+a {
+    text-decoration: none;
+    color: #2fa1ed;
+    transition: all .3s;
+    cursor: pointer;
+}
+a:hover {
+    color: #0c65b8;
+}
+.contents {
+    margin: 40px 0;
+    width: 100%;
+}
+.line {
+    width: 60%;
+    height: 5px;
+    margin-left: 10%;
+    border: none;
+    border-top: 1px solid #ccc!important;
+    margin-top: 10px;margin-bottom: 10px;
+}
+.contents > :first-child {
+    font-weight: 900;
+    color: #49acee;
+    font-size: xx-large;
+    margin-left: 20px;
+}
+.content {
+    color: #666;
+    width: 500px;
+}
+.contents > .content {
+    margin-left: 10%;
+    font-size: large;
+}
+.contents > * {
+    margin-left: 20px;
+}
