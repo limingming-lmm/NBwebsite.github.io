@@ -68,3 +68,7 @@ footer {
     border-top: 1px solid #ccc!important;
     margin-top: 10px;margin-bottom: 10px;
 }
+body {
+    overflow-x: hidden;
+    background-color: #e7fbfd;
+}
