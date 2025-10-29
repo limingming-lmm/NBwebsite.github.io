@@ -1,0 +1,70 @@
+.top#tp {
+    width: 101.14%;
+    height: 150px;
+    margin-left: -5px;
+    margin-top: -5px;
+    border-radius: 4px;
+    background: linear-gradient(90deg, rgb(114, 198, 254), rgb(45, 126, 255), rgb(7, 76, 171));
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.top#tp > :first-child{
+    display: block;
+    color: #fff;
+    font-size: xx-large;
+    font-weight: 600;
+}
+.top#tp > :nth-child(2){
+    display: block;
+    color: #fff;
+}
+.contents > :first-child {
+    font-weight: 900;
+    color: #49acee;
+    font-size: xx-large;
+    margin-left: 10%;
+}
+.content {
+    color: #666;
+    width: 500px;
+}
+.contents > .content {
+    margin-left: 10%;
+    font-size: large;
+}
+a {
+    text-decoration: none;
+    color: #2fa1ed;
+    transition: all .3s;
+    cursor: pointer;
+}
+a:hover {
+    color: #0c65b8;
+}
+.files {
+    margin: 20px;
+}
+.files > a {
+    margin-left: 10%;
+}
+footer {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    font-size: 0.95rem;
+    border: none;
+    border-top: #bbb 1px solid;
+    color: #333;
+    padding: 20px 0;
+}
+.line {
+    width: 60%;
+    height: 5px;
+    margin-left: 10%;
+    border: none;
+    border-top: 1px solid #ccc!important;
+    margin-top: 10px;margin-bottom: 10px;
+}

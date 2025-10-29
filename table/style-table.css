@@ -19,6 +19,52 @@
     --lanthanoid-border: #ccb889;
     --actinoid-border: #d7b3bf;
 }
+.top-messagebox {
+    top: 20px;
+    left: 50%;
+    padding: 12px;
+    z-index: 9999;
+    position: fixed;
+    border-radius: 5px;
+    font-size: small;
+    color: #555;
+    display: flex;
+    align-items: center;
+    min-width: 280px;
+    transition: all .3s;
+    border: #999 1px solid;
+    transform: translateX(-50%);
+    background-color: #edf2fc;
+    box-shadow: 0 0 4px 1px #eeeeee8c;
+}
+.top-messagebox > .msg-content {
+    font-size: 14px;
+    color: #909399;
+}
+.top-messagebox.success {
+    border: #bcff9a 1px solid;
+    background-color: #f0f9eb;
+}
+.top-messagebox.warn {
+    border: #fff59a 1px solid;
+    background-color: #fdf6ec;
+}
+.top-messagebox.error {
+    border: #ff9083 1px solid;
+    background-color: #fef0f0;
+}
+.top-messagebox.success > .msg-content {
+    color: #67c23a;
+}
+.top-messagebox.warn > .msg-content {
+    color: #e6a23c;
+}
+.top-messagebox.error > .msg-content {
+    color: #f56c6c;
+}
+.top-messagebox.is-center {
+    justify-content: center;
+}
 .top#tp {
     width: 101.14%;
     height: 60px;
@@ -59,6 +105,8 @@ body {
 .table {
     margin-top: 30px;
     margin-left: 20px;
+    --table-scale: 1;
+    --period-base-top: 125px;
 }
 .table > .item > * {
     position: absolute;
@@ -142,6 +190,18 @@ body {
     position: absolute;
     left: 30px;
 }
+@media (max-width: 1400px) {
+    .table {
+        scale: .6;
+        margin-left: -230px;
+        --period-base-top: 35px;
+        --table-scale: .28;
+    }
+    .table > .period {
+        left: 10px;
+    }
+}
+
 a {
     text-decoration: none;
     color: #2fa1ed;
@@ -179,4 +239,9 @@ a:hover {
 }
 .contents > * {
     margin-left: 20px;
+}
+@media (max-width: 500px) {
+    body {
+        transform: rotate(90deg);
+    }
 }
